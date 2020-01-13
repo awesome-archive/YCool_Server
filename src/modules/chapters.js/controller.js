@@ -73,7 +73,6 @@ export async function getChapterInfo (ctx) {
   ctx.body = {
     response
   }
-  Handle.count('getChapterInfo')
 }
 
 /**
@@ -123,7 +122,7 @@ export async function getChapterInfo (ctx) {
         "error": ""
       }
  */
-export async function getFirstRenderChapter (ctx) {
+export async function getFirstRenderChapter(ctx) {
   let bookshelf, chapter, nextChapter, chapters
   const id = ctx.params.id
   const user = ctx.state.user
@@ -140,6 +139,7 @@ export async function getFirstRenderChapter (ctx) {
       }
     }
   } catch (e) {
+    console.log(e)
     Handle.sendEmail(e.message)
     ctx.throw(422, e.message)
   }
@@ -172,7 +172,6 @@ export async function getFirstRenderChapter (ctx) {
   ctx.body = {
     response
   }
-  Handle.count('getFirstRenderChapter')
 }
 
 /**
@@ -250,7 +249,6 @@ export async function getNextChapterInfo (ctx) {
   ctx.body = {
     detail: response
   }
-  Handle.count('getNextChapterInfo')
 }
 
 /**
@@ -327,5 +325,4 @@ export async function getLastChapterInfo (ctx) {
   ctx.body = {
     detail: response
   }
-  Handle.count('getLastChapterInfo')
 }
